@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
 *{
-    font-family: 'Yeseva One', cursive;
+  font-family: 'Cabin', sans-serif;
 }
 .main{
     padding-left: 5%;
@@ -30,6 +30,7 @@
 {
     padding-left: 5%;
     padding-right: 5%;
+    
 }
 .card{
     width: 80%;
@@ -40,21 +41,21 @@
     height: 450px;
 }
 .signin{
-    width: 120px;
-    height: 40px;
+    width: 150px;
+    height: 50px;
     font-size: 1.15rem;
     border: none;
     color: white; 
-    background-color: #A1BE95;
+    background-color: #F75C03;
     border-radius: 10px;
 }
 .signup{
-    width: 120px;
-    height: 40px;
+    width: 150px;
+    height: 50px;
     font-size: 1.15rem;
     border: none;
     color: white; 
-    background-color: #E2DFA2;
+    background-color: #2274A5;
     border-radius: 10px;
 }
 .form-signin {
@@ -85,4 +86,17 @@
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+  .sideImg{
+    height: 500px;
+    width: 500px;
+    
+  }
+  @keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 100px;
+    }
   }

@@ -5,7 +5,7 @@ class Header extends React.Component {
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"><img src="https://img.icons8.com/color/32/000000/google-keep.png"/> InstaSnap</a>
+                        <a class="navbar-brand" href="#"><img src="https://img.icons8.com/color/32/000000/google-keep.png"/> Track<span style={{color:'#FFC107'}}>Insta</span></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>

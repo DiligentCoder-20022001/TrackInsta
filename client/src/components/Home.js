@@ -4,6 +4,9 @@ import Footer from './Footer';
 import './styles.css';
 import {connect} from 'react-redux';
 import Signup from './Signup';
+import Side1 from './images/side1.svg';
+import Header0 from './Header0';
+import Signin from './Signin';
 class Home extends React.Component
 {
     signup = (e) => {
@@ -11,37 +14,73 @@ class Home extends React.Component
         this.props.changeToSignup();
         console.log(this.state.status);
     }
+    signIn = (e) => {
+        e.preventDefault();
+        this.props.changeToSignin();
+
+    }
     checkStatus()
     {
         if(this.props.status === 'home')
         {
             return (<div>
                 <div>
+                    <Header0/>
                     <div className='main1'>
                         <div className='container'>
                             <div className='row'>
                             <div className='col-lg-6 col-md-12'>
                                     <div className='left'>
-                                        <h1 style={{fontSize:'3rem', fontWeight:'bolder'}}>InstaSnap</h1>
+                                        <h1 style={{fontSize:'3rem', fontWeight:'bolder'}}>Track<span style={{color:'#FFC107'}}>Insta</span></h1>
                                         <p style={{fontSize:'1.2rem', fontWeight: 'bold'}}>Live your memories again :))</p>
                                         <hr/>
                                         <div>
                                             <p style={{fontSize:'1.5rem'}}>Journal your life by expressing your thoughts, photos over here and relive them whenever you want!!</p>
                                         </div>
                                         <div>
-                                            <button className='signin'>Sign In</button> { " " } <button className='signup' onClick = {this.signup}>Sign Up</button>
+                                            <button className='signin' onClick={this.signIn}>Sign In</button> { " " } <button className='signup' onClick = {this.signup}>Sign Up</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='col-lg-6 col-md-12'>
                                     <div className='right'>
-                                    <div class="card">
-                                        <img src="https://images.unsplash.com/photo-1640782321841-d67540111248?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">A day in the woods</h5>
-                                            <p class="card-text">Hell of a day!! Would love to relive it again!!</p>
+                                    <img src = {Side1} className='sideImg'/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <Footer/>
+                </div>
+            </div>
+        )
+        }
+        if(this.props.status === 'signup')
+        {
+            return (<div>
+                <div>
+                <Header0/>
+                    <div className='main1'>
+                        
+                        <div className='container'>
+                            <div className='row'>
+                            <div className='col-lg-6 col-md-12'>
+                                    <div className='left'>
+                                        <h1 style={{fontSize:'3rem', fontWeight:'bolder'}}>Track<span style={{color:'#FFC107'}}>Insta</span></h1>
+                                        <p style={{fontSize:'1.2rem', fontWeight: 'bold'}}>Live your memories again :))</p>
+                                        <hr/>
+                                        <div>
+                                            <p style={{fontSize:'1.5rem'}}>Journal your life by expressing your thoughts, photos over here and relive them whenever you want!!</p>
+                                        </div>
+                                        <div>
+                                            <button className='signin' onClick={this.signIn}>Sign In</button> { " " } <button className='signup' onClick = {this.signup}>Sign Up</button>
                                         </div>
                                     </div>
+                                </div>
+                                <div className='col-lg-6 col-md-12'>
+                                    <div className='right'>
+                                    <Signup/>
                                     </div>
                                 </div>
                                 
@@ -53,29 +92,31 @@ class Home extends React.Component
             </div>
         )
         }
-        if(this.props.status === 'signup')
+        if(this.props.status === 'login')
         {
             return (<div>
                 <div>
+                <Header0/>
                     <div className='main1'>
+                        
                         <div className='container'>
                             <div className='row'>
                             <div className='col-lg-6 col-md-12'>
                                     <div className='left'>
-                                        <h1 style={{fontSize:'3rem', fontWeight:'bolder'}}>InstaSnap</h1>
+                                        <h1 style={{fontSize:'3rem', fontWeight:'bolder'}}>Track<span style={{color:'#FFC107'}}>Insta</span></h1>
                                         <p style={{fontSize:'1.2rem', fontWeight: 'bold'}}>Live your memories again :))</p>
                                         <hr/>
                                         <div>
                                             <p style={{fontSize:'1.5rem'}}>Journal your life by expressing your thoughts, photos over here and relive them whenever you want!!</p>
                                         </div>
                                         <div>
-                                            <button className='signin'>Sign In</button> { " " } <button className='signup' onClick = {this.signup}>Sign Up</button>
+                                            <button className='signin' onClick={this.signIn}>Sign In</button> { " " } <button className='signup' onClick = {this.signup}>Sign Up</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='col-lg-6 col-md-12'>
                                     <div className='right'>
-                                    <Signup/>
+                                    <Signin/>
                                     </div>
                                 </div>
                                 
@@ -104,6 +145,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         changeToSignup : () => {
             dispatch({type: 'signup'});
+        },
+        changeToSignin : () => {
+            dispatch({type: 'login'})
         }
     }
 }
