@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import FileBase64 from 'react-file-base64';
 class Signup extends React.Component
 {
     constructor(props)
@@ -28,7 +29,7 @@ class Signup extends React.Component
             email : this.state.email, 
             password: this.state.password, 
             username : this.state.username, 
-            pic : 'Hello'
+            pic : this.state.pic
         }
         axios.post('http://localhost:5000/user/addUser', userData)
         .then((res) => {
@@ -53,7 +54,9 @@ class Signup extends React.Component
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" name = "password" id="inputPassword" class="form-control" placeholder="Password" required/>
                         <label for="profilePic" class="sr-only">Profile picture</label>
-                        <input type="file" name = "pic" style={{border: 'none'}}/>
+                        <FileBase64
+                            multiple={ true }
+                            onDone={ (base64) => {this.setState({pic: base64})} } />
                         <div style={{paddingTop:'2%', paddingBottom:'2%'}}></div>
                         <button class="signup" type="submit" onClick={this.signUp}>Sign Up</button>
                     </form>
