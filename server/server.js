@@ -19,7 +19,8 @@ connection.once('open', () => {
 //notes part 
 const noteRouter = require('./routes/noteRoute');
 app.use('/notes', noteRouter);
-
+const userRoute = require('./routes/userRoute');
+app.use('/user', userRoute);
 app.listen(port, () => {
     console.log('App running on port ' + port);
 })
