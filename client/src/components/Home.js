@@ -136,8 +136,9 @@ class Home extends React.Component
     }
 }
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
+    console.log(ownProps);
     return {
+        ...ownProps,
         status: state.status
     }
 }

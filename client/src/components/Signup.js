@@ -3,11 +3,13 @@ import './styles.css';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import FileBase64 from 'react-file-base64';
+import { createBrowserHistory } from 'history';
 class Signup extends React.Component
 {
     constructor(props)
     {
         super(props);
+        console.log(props);
         this.state = {
             email: '', 
             password: '', 
@@ -35,14 +37,16 @@ class Signup extends React.Component
         formData.append("password", this.state.password); 
         formData.append("username", this.state.username); 
         formData.append("profileImg", this.state.profileImg);
-        
-        axios.post('http://localhost:5000/user/addUser', formData)
-        .then((res) => {
-            console.log(res.data);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        const browserHistory = createBrowserHistory();
+        this.props.history.push('/users/123');
+        // axios.post('http://localhost:5000/user/addUser', formData)
+        // .then((res) => {
+        //     console.log(res.data._id);
+            
+        // })
+        // .catch((err) => {
+        //     console.log(err);
+        // })
     }
     render()
     {
@@ -68,4 +72,5 @@ class Signup extends React.Component
         )
     }
 }
+
 export default connect()(Signup);

@@ -6,7 +6,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './public');
+        callback(null, '../client/src/uploads');
     }, 
     filename: (req, file, callback) => {
         callback(null, file.originalname);
@@ -40,8 +40,8 @@ router.post('/addUser', upload.single('profileImg'),async(req, res, next) => {
     {
         //save the user 
         newUser.save()
-        .then(() => {
-            res.json('User saved');
+        .then((user) => {
+            res.json(user);
         })
         .catch((err) => {
             res.status(400).json(err);
