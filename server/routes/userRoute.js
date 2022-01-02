@@ -1,20 +1,33 @@
 const router = require('express').Router();
 const User = require('../models/user'); 
 const encrypt = require('../functions/RSA');
-const encypt = require('../functions/RSA');
-router.route('/addUser').post(async(req, res) => {
-    const pic = req.body.pic;
+const {v4: uuidv4} = require('uuid');
+const multer = require('multer'); 
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, './public');
+    }, 
+    filename: (req, file, callback) => {
+        callback(null, file.originalname);
+    }
+})
+
+const upload = multer({storage: storage});
+
+router.post('/addUser', upload.single('profileImg'),async(req, res, next) => {
+
     const username = req.body.username; 
     const email = req.body.email; 
     const password = req.body.password; 
     //check for weak password over here
     //encrypt the password
-    const enPass = encypt(password);
+    const enPass = password;
     const newUser = new User({
         email: email, 
         password: enPass, 
         username: username, 
-        pic: pic
+        profileImg: req.file.filename
     }); 
     
     const userExists = await User.exists({email: email});

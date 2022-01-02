@@ -14,8 +14,8 @@ const userSchema = {
         type: String, 
         required: true 
     }, 
-    pic: {
-        type: String, 
+    profileImg : {
+        type: String
     }
 };
 const user = mongoose.model('User', userSchema);
