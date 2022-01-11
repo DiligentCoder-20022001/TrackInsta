@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend for TrackInsta app ",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server", 
+    "start": "nodemon server"
+  },
+  "author": "Siddharth.S.Chandran",
+  "license": "MIT ",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
+  }
+}
